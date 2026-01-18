@@ -72,13 +72,23 @@ sudo dpkg-reconfigure --priority=low unattended-upgrades
 
 ### 4. Install Security Tools
 
-- Install monitoring and intrusion detection tools using sudo apt install fail2ban ufw rkhunter chkrootkit lynis.
+- Install monitoring and intrusion detection tools:
 
-    • Run a system audit with sudo lynis audit system.
+```bash
+sudo apt install fail2ban ufw rkhunter chkrootkit lynis
+```
 
-    • Helps detect potential threats and monitor system security.
+- Run a system audit with sudo lynis audit system:
 
-    Disk Encryption (Optional)
+```bash
+sudo lynis audit system
+```
+**Notes**
+- fail2ban: blocks IPs after multiple failed login attempts
+- rkhunter/chrootkit: scans for rootkits
+- lynis: security auditing tool
+
+### 5. Disk Encryption (Optional)
 
     • Install encryption tools with sudo apt install cryptsetup.
 
