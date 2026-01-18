@@ -90,11 +90,15 @@ sudo lynis audit system
 
 ### 5. Disk Encryption (Optional)
 
-    • Install encryption tools with sudo apt install cryptsetup.
+- Install encryption tools:
 
-    • Use LUKS for encrypting disks (best done at installation for full-disk encryption).
+```bash
+sudo apt install cryptsetup
+```
 
-    • Protects sensitive data in case the device is lost or stolen.
+**Notes** 
+- Use LUKS for encrypting disks (best done at installation for full-disk encryption).
+- Protects sensitive data in case the device is lost or stolen.
 
     Disable Unnecessary Services
 
