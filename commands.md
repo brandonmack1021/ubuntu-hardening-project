@@ -1,18 +1,29 @@
-Ubuntu Hardening & Security Configuration
+# Ubuntu Hardening & Security Configuration
 
 
-Project Overview
-
+## Project Overview
 
 This project documents the process of hardening and securing an existing Ubuntu Linux installation.
 
 The goal is to demonstrate practical system security and administration skills, including firewall setup, SSH hardening, automatic updates, user management, application sandboxing, and multi-factor authentication.
+---
 
-Hardening Steps
+## Hardening Steps
 
-    Update and Upgrade the System
+   1.  Update and Upgrade the System
 
-    • Open Terminal and run the commands sudo apt update, sudo apt upgrade -y, sudo apt dist-upgrade -y, and sudo apt autoremove -y to update all packages and remove unnecessary ones.
+    • Open Terminal and run these commands to update all packages and remove unnecessary ones.
+    
+    ```bash 
+    sudo apt update && sudo apt upgrade -y
+    ```
+    ```bash
+    sudo apt dist-upgrade -y
+    ```
+    ```bash
+    sudo apt autoremove -y
+    ```
+    
 
     • This ensures your system is fully patched and up to date, reducing vulnerabilities.
 
