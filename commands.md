@@ -12,7 +12,8 @@ The goal is to demonstrate practical system security and administration skills, 
 
 1.  Update and Upgrade the System
 
-- Open Terminal and run these commands to update all packages and remove unnecessary ones.
+- Open Terminal
+- Run the following commands to update and upgrade all packages:
     
     ```bash 
     sudo apt update && sudo apt upgrade -y
@@ -25,25 +26,21 @@ The goal is to demonstrate practical system security and administration skills, 
     ```bash
     sudo apt autoremove -y
     ```
-    
+- This ensures your system is fully patched and up to date, reducing vulnerabilities
 
-    • This ensures your system is fully patched and up to date, reducing vulnerabilities.
+3. Enable Firewall (UFW)
 
-    Create a Non-Root User
+- Set default firewall policies
+   
+   ```bash
+   sudo ufw default deny incoming
+   ```
 
-    • Create a new user for daily use with sudo adduser yourusername.
+  ```bash
+  sudo ufw default allow outgoing.
+   ```
 
-    • Add the user to the sudo group with sudo usermod -aG sudo yourusername.
-
-    • Lock the root account using sudo passwd -l root to prevent direct login.
-
-    • Using a sudo-enabled normal user reduces risk by limiting direct root access.
-
-    Enable Firewall (UFW)
-
-    • Set default firewall policies with sudo ufw default deny incoming and sudo ufw default allow outgoing.
-
-    • Allow SSH connections with sudo ufw allow ssh.
+- Allow SSH connections with sudo ufw allow ssh.
 
     • Enable the firewall using sudo ufw enable and check its status with sudo ufw status verbose.
 
