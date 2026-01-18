@@ -7,9 +7,9 @@ The goal is to demonstrate practical system security and administration skills, 
 ---
 
 ## Environment
-- **Operating System:** Ubuntu LTS (latest stable version)
+- **Operating System:** Ubuntu LTS
 - **Hardware:** Laptop (bare-metal installation) or Virtual Machine
-- **Installation Method:** Bootable USB or fresh ISO installation
+- **Installation Method:** Bootable USB or fresh ISO installation (refer to my linux-ubuntu-deployment repository)
 - **Tools & Utilities:**
 - Bash
 - UFW (Uncomplicated Firewall)
@@ -32,7 +32,6 @@ The goal is to demonstrate practical system security and administration skills, 
 - Disable unnecessary services to reduce the system attack surface
 - Secure applications using sandboxing tools like Firejail
 - Enable two-factor authentication (2FA) for additional login security
-- Document all steps and provide a ready-to-run command reference
 
 ---
 
