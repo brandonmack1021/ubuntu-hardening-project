@@ -5,7 +5,8 @@
 
 This project documents the process of hardening and securing an existing Ubuntu Linux installation.
 
-The goal is to demonstrate practical system security and administration skills, including firewall setup, SSH hardening, automatic updates, user management, application sandboxing, and multi-factor authentication.
+The goal
+
 ---
 
 ## Hardening Steps
