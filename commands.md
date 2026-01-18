@@ -27,7 +27,8 @@ The goal
     ```bash
     sudo apt autoremove -y
     ```
-- This ensures your system is fully patched and up to date, reducing vulnerabilities
+**Notes**
+- These commands will ensure your system is fully patched and up to date
 
 2. Enable Firewall (UFW)
 
