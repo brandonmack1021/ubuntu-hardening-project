@@ -100,7 +100,7 @@ sudo apt install cryptsetup
 - Use LUKS for encrypting disks (best done at installation for full-disk encryption).
 - Protects sensitive data in case the device is lost or stolen.
 
-### 6.Disable Unnecessary Services
+### 6. Disable Unnecessary Services
 
 - List all system services:
 ```bash
@@ -120,27 +120,65 @@ sudo systemctl disable <service>
 - The <service> section gets replaces with the service name from the list that you want to stop or disable.
 - Reduces the system attack surface by only running required services.
 
-    Browser & Application Security
+### 7. Browser & Application Security
 
-    • Install Firejail to sandbox applications using sudo apt install firejail.
+- Install Firejail to sandbox applications:
 
-    • Run Firefox in a sandbox with firejail firefox.
+```bash
+sudo apt install firejail
+```
 
-    • Limits potential damage if an application is compromised.
+- Run Firefox in a sandbox
+```bash
+firejail firefox
+```
 
-    Enable Two-Factor Authentication (Google Authenticator)
+**Notes** 
+- Limits potential damage if an application is compromised.
 
-    • Install the Google Authenticator PAM module with sudo apt install libpam-google-authenticator.
 
-    • Configure your user for 2FA using google-authenticator.
+### 8. Advanced Hardening (Optional)
 
-    • Adds an extra layer of login security beyond passwords.
+- Install and enable auditd:
+```bash
+sudo apt install auditd
+```
 
-Optional Notes
+```bash
+sudo systemctl enable auditd
+```
 
-    Always backup important data before applying system hardening.
+```bash
+sudo systemctl start auditd
+```
 
-    Avoid pushing sensitive files (like private keys or passwords) to GitHub.
+- Consider two-factor authentication for logins:
 
-    This repository can serve as a template for future Ubuntu installations.
+```bash
+sudo apt install libpam-google-authenticator
+```
+```bash
+google-authenticator
+```
+ 
+**Notes** 
+- Use auditd to monitor system events.
+- using two-factor authentication adds an extra layer of login security beyond passwords.
+
+---
+
+## **Final Notes**
+
+- Always backup important data before applying system hardening.
+
+- Avoid pushing sensitive files (like private keys or passwords) to GitHub.
+
+- This repository can serve as a template for future Ubuntu installations.
+
+- This project was intended to build off of my linux-ubuntu-deployment project.
+
+- These steps are intended to provide **basic security hardening** for a personal Ubuntu system.
+
+- While they significantly reduce the attack surface, they do not represent an exhaustive or enterprise-level security configuiration.
+
 
