@@ -17,9 +17,11 @@ The goal is to demonstrate practical system security and administration skills, 
     ```bash 
     sudo apt update && sudo apt upgrade -y
     ```
+    
     ```bash
     sudo apt dist-upgrade -y
     ```
+    
     ```bash
     sudo apt autoremove -y
     ```
