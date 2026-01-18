@@ -16,18 +16,11 @@ The goal is to demonstrate practical system security and administration skills, 
 
 ## Objectives
 - Apply security best practices to a fresh Ubuntu installation
-- Create and configure a non-root user for daily use
 - Enable and configure the firewall to restrict incoming connections
-- Harden SSH access, including disabling root login and enforcing key-based authentication
 - Enable automatic security updates to reduce vulnerability exposure
 - Install and configure security monitoring tools for intrusion detection
 - Disable unnecessary services to reduce the system attack surface
 - Secure applications using sandboxing tools like Firejail
+- Install auditd tto monitor system events
 - Enable two-factor authentication (2FA) for additional login security
 
----
-
-## Notes
-- Always backup important data before applying system hardening
-- Avoid pushing sensitive files (like private keys or passwords) to GitHub
-- This repository can serve as a template for future Ubuntu installations
