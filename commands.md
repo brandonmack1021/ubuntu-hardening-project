@@ -100,13 +100,25 @@ sudo apt install cryptsetup
 - Use LUKS for encrypting disks (best done at installation for full-disk encryption).
 - Protects sensitive data in case the device is lost or stolen.
 
-    Disable Unnecessary Services
+### 6.Disable Unnecessary Services
 
-    • List all system services using sudo systemctl list-unit-files --type=service.
+- List all system services:
+```bash
+sudo systemctl list-unit-files --type=service
+```
 
-    • Stop unwanted services with sudo systemctl stop <service> and prevent them from starting at boot using sudo systemctl disable <service>.
+- Stop services you dont need:
+```bash
+sudo systemctl stop <service>
+```
+- Prevent them from starting at boot:
+```bash
+sudo systemctl disable <service>
+```
 
-    • Reduces the system attack surface by only running required services.
+**Notes**
+- The <service> section gets replaces with the service name from the list that you want to stop or disable.
+- Reduces the system attack surface by only running required services.
 
     Browser & Application Security
 
