@@ -29,7 +29,7 @@ The goal
     ```
 - This ensures your system is fully patched and up to date, reducing vulnerabilities
 
-3. Enable Firewall (UFW)
+2. Enable Firewall (UFW)
 
 - Set default firewall policies
    
@@ -41,33 +41,37 @@ The goal
   sudo ufw default allow outgoing.
    ```
 
-- Allow SSH connections with sudo ufw allow ssh.
+```bash
+sudo ufw enable
+```
 
-    • Enable the firewall using sudo ufw enable and check its status with sudo ufw status verbose.
+```bash
+sudo ufw status verbose
+```
+**Notes** 
+- 
 
-    • This blocks unwanted inbound connections while allowing necessary network access.
+3. Enable Automatic Security Updates
 
-    Secure SSH
+- Install unattended upgrades:
 
-    • Edit the SSH configuration file with sudo nano /etc/ssh/sshd_config.
+```bash
+sudo apt install unattended-upgrades
+```
 
-    • Update the settings: PermitRootLogin no, PasswordAuthentication no, optionally set AllowUsers yourusername and change Port 2222.
+- Configure automatic updates:
 
-    • Restart SSH using sudo systemctl restart ssh to apply changes.
+```bash
+sudo dpkg-reconfigure --priority=low unattended-upgrades
+```
 
-    • This prevents brute-force attacks and enforces secure key-based login.
+**Notes**
 
-    Enable Automatic Security Updates
+- Running these commands will automatically keeps the system patched which will help by reducing exposure to vulnerabilities.
 
-    • Install unattended upgrades with sudo apt install unattended-upgrades.
+4. Install Security Tools
 
-    • Configure automatic updates using sudo dpkg-reconfigure --priority=low unattended-upgrades.
-
-    • Automatically keeps the system patched, reducing exposure to vulnerabilities.
-
-    Install Security Tools
-
-    • Install monitoring and intrusion detection tools using sudo apt install fail2ban ufw rkhunter chkrootkit lynis.
+- Install monitoring and intrusion detection tools using sudo apt install fail2ban ufw rkhunter chkrootkit lynis.
 
     • Run a system audit with sudo lynis audit system.
 
