@@ -11,7 +11,7 @@ The goal
 
 ## Hardening Steps
 
-1.  Update and Upgrade the System
+## 1.  Update and Upgrade the System
 
 - Open Terminal
 - Run the following commands to update and upgrade all packages:
@@ -30,7 +30,7 @@ The goal
 **Notes**
 - These commands will ensure your system is fully patched and up to date
 
-2. Enable Firewall (UFW)
+## 2. Enable Firewall (UFW)
 
 - Set default firewall policies
    
@@ -52,7 +52,7 @@ sudo ufw status verbose
 **Notes** 
 - 
 
-3. Enable Automatic Security Updates
+## 3. Enable Automatic Security Updates
 
 - Install unattended upgrades:
 
@@ -70,7 +70,7 @@ sudo dpkg-reconfigure --priority=low unattended-upgrades
 
 - Running these commands will automatically keeps the system patched which will help by reducing exposure to vulnerabilities.
 
-4. Install Security Tools
+## 4. Install Security Tools
 
 - Install monitoring and intrusion detection tools using sudo apt install fail2ban ufw rkhunter chkrootkit lynis.
 
