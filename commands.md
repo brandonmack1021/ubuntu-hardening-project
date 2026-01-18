@@ -1,51 +1,104 @@
-# Ubuntu Hardening Commands
+Ubuntu Hardening & Security Configuration
 
-## Step 1: Update and Upgrade the System
-sudo apt update
-sudo apt upgrade -y
-sudo apt dist-upgrade -y
-sudo apt autoremove -y
 
-## Step 2: Create a Non-Root User
-sudo adduser yourusername
-sudo usermod -aG sudo yourusername
-sudo passwd -l root
+Project Overview
 
-## Step 3: Enable Firewall (UFW)
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw allow ssh # or your chosen SSH port
-sudo ufw enable
-sudo ufw status verbose
 
-## Step 4: Secure SSH
-# Edit /etc/ssh/sshd_config as follows:
-# PermitRootLogin no
-# PasswordAuthentication no
-# AllowUsers yourusername
-# Port 2222 # optional
-sudo systemctl restart ssh
+This project documents the process of hardening and securing an existing Ubuntu Linux installation.
 
-## Step 5: Enable Automatic Security Updates
-sudo apt install unattended-upgrades
-sudo dpkg-reconfigure --priority=low unattended-upgrades
+The goal is to demonstrate practical system security and administration skills, including firewall setup, SSH hardening, automatic updates, user management, application sandboxing, and multi-factor authentication.
 
-## Step 6: Install Security Tools
-sudo apt install fail2ban ufw rkhunter chkrootkit lynis
-sudo lynis audit system
+Hardening Steps
 
-## Step 7: Disk Encryption (Optional)
-sudo apt install cryptsetup
+    Update and Upgrade the System
 
-## Step 8: Disable Unnecessary Services
-sudo systemctl list-unit-files --type=service
-sudo systemctl stop <service>
-sudo systemctl disable <service>
+    • Open Terminal and run the commands sudo apt update, sudo apt upgrade -y, sudo apt dist-upgrade -y, and sudo apt autoremove -y to update all packages and remove unnecessary ones.
 
-## Step 9: Browser & Application Security
-sudo apt install firejail
-firejail firefox
+    • This ensures your system is fully patched and up to date, reducing vulnerabilities.
 
-## Step 10: Enable Two-Factor Authentication (Google Authenticator)
-sudo apt install libpam-google-authenticator
-google-authenticator
+    Create a Non-Root User
+
+    • Create a new user for daily use with sudo adduser yourusername.
+
+    • Add the user to the sudo group with sudo usermod -aG sudo yourusername.
+
+    • Lock the root account using sudo passwd -l root to prevent direct login.
+
+    • Using a sudo-enabled normal user reduces risk by limiting direct root access.
+
+    Enable Firewall (UFW)
+
+    • Set default firewall policies with sudo ufw default deny incoming and sudo ufw default allow outgoing.
+
+    • Allow SSH connections with sudo ufw allow ssh.
+
+    • Enable the firewall using sudo ufw enable and check its status with sudo ufw status verbose.
+
+    • This blocks unwanted inbound connections while allowing necessary network access.
+
+    Secure SSH
+
+    • Edit the SSH configuration file with sudo nano /etc/ssh/sshd_config.
+
+    • Update the settings: PermitRootLogin no, PasswordAuthentication no, optionally set AllowUsers yourusername and change Port 2222.
+
+    • Restart SSH using sudo systemctl restart ssh to apply changes.
+
+    • This prevents brute-force attacks and enforces secure key-based login.
+
+    Enable Automatic Security Updates
+
+    • Install unattended upgrades with sudo apt install unattended-upgrades.
+
+    • Configure automatic updates using sudo dpkg-reconfigure --priority=low unattended-upgrades.
+
+    • Automatically keeps the system patched, reducing exposure to vulnerabilities.
+
+    Install Security Tools
+
+    • Install monitoring and intrusion detection tools using sudo apt install fail2ban ufw rkhunter chkrootkit lynis.
+
+    • Run a system audit with sudo lynis audit system.
+
+    • Helps detect potential threats and monitor system security.
+
+    Disk Encryption (Optional)
+
+    • Install encryption tools with sudo apt install cryptsetup.
+
+    • Use LUKS for encrypting disks (best done at installation for full-disk encryption).
+
+    • Protects sensitive data in case the device is lost or stolen.
+
+    Disable Unnecessary Services
+
+    • List all system services using sudo systemctl list-unit-files --type=service.
+
+    • Stop unwanted services with sudo systemctl stop <service> and prevent them from starting at boot using sudo systemctl disable <service>.
+
+    • Reduces the system attack surface by only running required services.
+
+    Browser & Application Security
+
+    • Install Firejail to sandbox applications using sudo apt install firejail.
+
+    • Run Firefox in a sandbox with firejail firefox.
+
+    • Limits potential damage if an application is compromised.
+
+    Enable Two-Factor Authentication (Google Authenticator)
+
+    • Install the Google Authenticator PAM module with sudo apt install libpam-google-authenticator.
+
+    • Configure your user for 2FA using google-authenticator.
+
+    • Adds an extra layer of login security beyond passwords.
+
+Optional Notes
+
+    Always backup important data before applying system hardening.
+
+    Avoid pushing sensitive files (like private keys or passwords) to GitHub.
+
+    This repository can serve as a template for future Ubuntu installations.
+
