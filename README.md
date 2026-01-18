@@ -11,7 +11,7 @@ The goal is to demonstrate practical system security and administration skills, 
 - **Hardware:** Laptop (bare-metal installation) or Virtual Machine
 - **Installation Method:** Bootable USB or fresh ISO installation (refer to my linux-ubuntu-deployment repository)
 - **Tools & Utilities:**
-* Bash
+-- Bash
 - UFW (Uncomplicated Firewall)
 - Fail2Ban
 - Lynis
